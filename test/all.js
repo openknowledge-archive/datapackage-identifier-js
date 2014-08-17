@@ -7,7 +7,7 @@ describe('parse', function() {
     var url = 'http://data.okfn.org/data/country-codes/';
     var out = spec.parse(url);
     assert.equal(out.url, url);
-    assert.equal(out.dpJsonUrl, url + 'datapackage.json');
+    assert.equal(out.dataPackageJsonUrl, url + 'datapackage.json');
     assert.equal(out.name, 'country-codes');
   });
 
@@ -15,7 +15,7 @@ describe('parse', function() {
     var url = 'http://data.okfn.org/data/country-codes';
     var out = spec.parse(url);
     assert.equal(out.url, url + '/');
-    assert.equal(out.dpJsonUrl, url + '/datapackage.json');
+    assert.equal(out.dataPackageJsonUrl, url + '/datapackage.json');
     assert.equal(out.name, 'country-codes');
   });
 
@@ -23,7 +23,7 @@ describe('parse', function() {
     var url = 'http://data.okfn.org/data/country-codes/datapackage.json';
     var out = spec.parse(url);
     assert.equal(out.url, url.replace('datapackage.json', ''));
-    assert.equal(out.dpJsonUrl, url);
+    assert.equal(out.dataPackageJsonUrl, url);
     assert.equal(out.name, 'country-codes');
   });
 

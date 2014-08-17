@@ -5,6 +5,7 @@ var urlmod = require('url')
 exports.parse = function(specString) {
   out = {
     url: '',
+    dataPackageJsonUrl: '',
     name: '',
     version: '',
     original: specString
@@ -31,9 +32,9 @@ exports.parse = function(specString) {
     }
   }
 
-  out.dpJsonUrl = out.url;
-  out.dpJsonUrl = out.dpJsonUrl.replace(/\/$/, '');
-  out.dpJsonUrl += '/datapackage.json';
+  out.dataPackageJsonUrl = out.url;
+  out.dataPackageJsonUrl = out.dataPackageJsonUrl.replace(/\/$/, '');
+  out.dataPackageJsonUrl += '/datapackage.json';
 
   var _tmp = name.split('@');
   out.name = _tmp[0];

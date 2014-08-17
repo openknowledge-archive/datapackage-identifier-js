@@ -9,7 +9,7 @@ var dp = 'http://gibhub.com/datasets/gdp';
 var ourSpec = spec.parse(dp);
 
 // https://raw.github.com/datasets/gdp/master/datapackage.json
-var datapackageJsonUrl = ourSpec.dpJsonUrl;
+console.log(ourSpec.dataPackageJsonUrl);
 ```
 
 # Data Package Spec (Specifier)
@@ -25,7 +25,7 @@ location of a Data Package. Its structure is like:
       // This URL will *always* have a trailing /
       url: ...
       // URL to datapackage.json
-      dpJsonUrl: ...
+      dataPackageJsonUrl: ...
       // name of the Data Package
       name: ...
       // version of the Data Package
