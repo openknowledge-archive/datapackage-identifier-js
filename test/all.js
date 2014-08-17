@@ -3,6 +3,13 @@ var assert = require('assert')
   ;
 
 describe('parse', function() {
+  it('no url ok', function() {
+    var out = spec.parse('');
+    assert.equal(out.url, '');
+    assert.equal(out.dataPackageJsonUrl, '');
+    assert.equal(out.name, '');
+  });
+
   it('url ok', function() {
     var url = 'http://data.okfn.org/data/country-codes/';
     var out = spec.parse(url);

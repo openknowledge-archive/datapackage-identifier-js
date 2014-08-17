@@ -3,16 +3,17 @@ var urlmod = require('url')
 
 // Parse Data Package spec strings (see README)
 exports.parse = function(specString) {
-  out = {
+  var out = {
     url: '',
     dataPackageJsonUrl: '',
     name: '',
     version: '',
     original: specString
   }
-
   var name = ''
     ;
+
+  if (specString == null || specString == '') return out;
 
   if (specString.indexOf('http') != -1) {
     var url = specString.replace('/datapackage.json', '')
