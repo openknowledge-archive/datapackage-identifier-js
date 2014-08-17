@@ -22,6 +22,7 @@ location of a Data Package. Its structure is like:
 
     {
       // URL to base of the Data Package
+      // This URL will *always* have a trailing /
       url: ...
       // URL to datapackage.json
       dpJsonUrl: ...

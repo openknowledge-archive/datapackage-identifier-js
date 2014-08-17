@@ -10,18 +10,19 @@ exports.parse = function(specString) {
     original: specString
   }
 
-  var url = specString.replace('/datapackage.json', '')
-    , name = ''
+  var name = ''
     ;
 
-  if (url.indexOf('http') != -1) {
-    var urlparts = urlmod.parse(url)
+  if (specString.indexOf('http') != -1) {
+    var url = specString.replace('/datapackage.json', '')
+      , url = url.replace(/\/$/, '')
+      , urlparts = urlmod.parse(url)
       , path = urlparts.pathname
       , parts = path.split('/')
       , name = parts.pop()
       ;
 
-    out.url = url;
+    out.url = url + '/';
 
     var ghNotRaw = '//github.com';
     if (url.indexOf(ghNotRaw) != -1) {
