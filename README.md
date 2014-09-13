@@ -5,7 +5,7 @@ Can also be used for getting normalized Data Package URLs. Example:
 ```
 var spec = require('datapackage-spec');
 
-var dp = 'http://gibhub.com/datasets/gdp';
+var dp = 'http://github.com/datasets/gdp';
 var ourSpec = spec.parse(dp);
 
 // https://raw.github.com/datasets/gdp/master/datapackage.json
