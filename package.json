@@ -1,6 +1,6 @@
 {
-  "name": "datapackage-spec",
-  "description": "Manipulate Data Package Spec(ifier)s and Spec(ifier) Strings",
+  "name": "datapackage-identifier",
+  "description": "Manipulate Data Package Identifiers and Identifier Strings",
   "version": "0.2.0",
   "license": "MIT",
   "author": "Rufus Pollock <rufus.pollock@okfn.org>",
@@ -9,10 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/okfn/datapackage-spec.git"
+    "url": "http://github.com/okfn/datapackage-identifier.git"
   },
   "bugs": {
-    "url": "http://github.com/okfn/datapackage-spec/issues"
+    "url": "http://github.com/okfn/datapackage-identifier/issues"
   },
   "engines": [
     "node >= 0.6"
