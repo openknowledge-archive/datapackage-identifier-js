@@ -15,7 +15,9 @@ var dp = 'http://github.com/datasets/gdp';
 var ourIdentifier = identifier.parse(dp);
 
 // https://raw.github.com/datasets/gdp/master/datapackage.json
-console.log(ourSpec.dataPackageJsonUrl);
+console.log(ourIdentifier.dataPackageJsonUrl);
+// gdp
+console.log(ourIdentifier.name);
 ```
 
 # Installation

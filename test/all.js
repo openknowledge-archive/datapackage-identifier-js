@@ -1,5 +1,6 @@
 var assert = require('assert')
   , spec = require('../index.js')
+  , pathmod = require('path')
   ;
 
 describe('parse', function() {
@@ -39,6 +40,29 @@ describe('parse', function() {
     var out = spec.parse(gdpUrl);
     assert.equal(out.url, 'https://raw.github.com/datasets/gdp/master');
     assert.equal(out.name, 'gdp');
+  });
+
+  it('local path ok', function() {
+    gdpUrl = '/tmp/gdp';
+    var out = spec.parse(gdpUrl);
+    assert.equal(out.path, '/tmp/gdp/');
+    assert.equal(out.name, 'gdp');
+    assert.equal(out.originalType, 'path');
+    assert.equal(out.url, 'file:///tmp/gdp/');
+    assert.equal(out.dataPackageJsonUrl, 'file:///tmp/gdp/datapackage.json');
+  });
+
+  it('local relative path ok', function() {
+    var gdpUrl = 'tmp/gdp/'
+      , ourpath = pathmod.resolve(gdpUrl) + '/'
+    ;
+
+    var out = spec.parse(gdpUrl);
+    assert.equal(out.path, ourpath);
+    assert.equal(out.name, 'gdp');
+    assert.equal(out.originalType, 'path');
+    assert.equal(out.url, 'file://' + ourpath);
+    assert.equal(out.dataPackageJsonUrl, out.url + 'datapackage.json');
   });
 });
 
