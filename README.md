@@ -14,10 +14,11 @@ var identifier = require('datapackage-identifier');
 var dp = 'http://github.com/datasets/gdp';
 var ourIdentifier = identifier.parse(dp);
 
-// https://raw.github.com/datasets/gdp/master/datapackage.json
 console.log(ourIdentifier.dataPackageJsonUrl);
-// gdp
+// https://raw.github.com/datasets/gdp/master/datapackage.json
+
 console.log(ourIdentifier.name);
+// gdp
 ```
 
 # Installation
