@@ -53,7 +53,7 @@ Run the tests with:
 
 ## Copyright and License
 
-Copyright 2012-2013 Rufus Pollock.
+Copyright 2014-2015 Rufus Pollock.
 
 Licensed under the MIT license:
 
