@@ -38,7 +38,8 @@ describe('parse', function() {
   it('github ok', function() {
     gdpUrl = 'https://github.com/datasets/gdp';
     var out = spec.parse(gdpUrl);
-    assert.equal(out.url, 'https://raw.github.com/datasets/gdp/master');
+    assert.equal(out.url, 'https://raw.github.com/datasets/gdp/master/');
+    assert.equal(out.dataPackageJsonUrl, 'https://raw.github.com/datasets/gdp/master/datapackage.json');
     assert.equal(out.name, 'gdp');
   });
 

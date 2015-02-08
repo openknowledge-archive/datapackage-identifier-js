@@ -52,7 +52,7 @@ exports.parse = function(specString) {
 
     var ghNotRaw = '//github.com';
     if (url.indexOf(ghNotRaw) != -1) {
-      out.url = url.replace(ghNotRaw, '//raw.github.com') + '/master';
+      out.url = url.replace(ghNotRaw, '//raw.github.com') + '/master/';
       out.version = 'master'
     }
   }
