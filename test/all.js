@@ -43,6 +43,14 @@ describe('parse', function() {
     assert.equal(out.name, 'gdp');
   });
 
+  it('github subfolder ok', function() {
+    dpmFolderUrl = 'https://github.com/okfn/dpm/tree/master/test/fixtures/datapackage-example-inline';
+    var out = spec.parse(dpmFolderUrl);
+    assert.equal(out.url, 'https://raw.github.com/okfn/dpm/master/test/fixtures/datapackage-example-inline/');
+    assert.equal(out.dataPackageJsonUrl, 'https://raw.github.com/okfn/dpm/master/test/fixtures/datapackage-example-inline/datapackage.json');
+    assert.equal(out.name, 'datapackage-example-inline');
+  });
+
   it('local path ok', function() {
     gdpUrl = '/tmp/gdp';
     var out = spec.parse(gdpUrl);
@@ -66,4 +74,3 @@ describe('parse', function() {
     assert.equal(out.dataPackageJsonUrl, out.url + 'datapackage.json');
   });
 });
-
