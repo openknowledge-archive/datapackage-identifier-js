@@ -44,21 +44,27 @@ exports.parse = function(specString) {
       , url = url.replace(/\/$/, '')
       , urlparts = urlmod.parse(url)
       , parts = urlparts.pathname.split('/')
+      , packageName = parts[parts.length - 1]
       ;
-
-    out.name = parts[parts.length - 1];
 
     // is this a github repository?
     if (urlparts.host == 'github.com') {
       // yes, modify url for raw file server
-
       urlparts.host = 'raw.github.com';
-      var branch = 'master';
+      var repoName = parts[2]
+        , branch = 'master'
+        ;
+
+      // is the path a repository root?
+      if(parts.length < 6){
+          // yes, use the repository name for the package name
+          packageName = repoName;
+      }
 
       // does the path contain subfolders (after the repository name)?
       if(parts.length == 3){
         // no, add 'master' branch
-         parts.push(branch);
+        parts.push(branch);
       } else {
         // yes, extract the branch and remove the 'tree' part
         branch = parts[4];
@@ -69,6 +75,7 @@ exports.parse = function(specString) {
       out.version = branch;
     }
 
+    out.name = packageName;
     out.url = urlmod.format(urlparts) + "/";
   }
 
