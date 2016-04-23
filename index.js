@@ -43,22 +43,43 @@ exports.parse = function(specString) {
     var url = specString.replace('/datapackage.json', '')
       , url = url.replace(/\/$/, '')
       , urlparts = urlmod.parse(url)
-      , path = urlparts.pathname
-      , parts = path.split('/')
+      , parts = urlparts.pathname.split('/')
+      , packageName = parts[parts.length - 1]
       ;
 
-    out.url = url + '/';
-    out.name = parts.pop()
+    // is this a github repository?
+    if (urlparts.host == 'github.com') {
+      // yes, modify url for raw file server
+      urlparts.host = 'raw.github.com';
+      var repoName = parts[2]
+        , branch = 'master'
+        ;
 
-    var ghNotRaw = '//github.com';
-    if (url.indexOf(ghNotRaw) != -1) {
-      out.url = url.replace(ghNotRaw, '//raw.github.com') + '/master/';
-      out.version = 'master'
+      // is the path a repository root?
+      if(parts.length < 6){
+          // yes, use the repository name for the package name
+          packageName = repoName;
+      }
+
+      // does the path contain subfolders (after the repository name)?
+      if(parts.length == 3){
+        // no, add 'master' branch
+        parts.push(branch);
+      } else {
+        // yes, extract the branch and remove the 'tree' part
+        branch = parts[4];
+        parts.splice(3, 1);
+      }
+
+      urlparts.pathname = parts.join('/');
+      out.version = branch;
     }
+
+    out.name = packageName;
+    out.url = urlmod.format(urlparts) + "/";
   }
 
-  out.dataPackageJsonUrl = out.url;
-  out.dataPackageJsonUrl = out.dataPackageJsonUrl.replace(/\/$/, '');
+  out.dataPackageJsonUrl = out.url.replace(/\/$/, '');
   out.dataPackageJsonUrl += '/datapackage.json';
 
   var _tmp = out.name.split('@');
@@ -77,4 +98,3 @@ exports.normalizeDataPackageUrl = function(url) {
   }
   return url;
 };
-
