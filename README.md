@@ -15,10 +15,20 @@ var dp = 'http://github.com/datasets/gdp';
 var ourIdentifier = identifier.parse(dp);
 
 console.log(ourIdentifier.dataPackageJsonUrl);
-// https://raw.github.com/datasets/gdp/master/datapackage.json
+// output
+> https://raw.github.com/datasets/gdp/master/datapackage.json
 
 console.log(ourIdentifier.name);
-// gdp
+// output
+> gdp
+```
+
+Also supports branches and subfolders in github e.g.:
+
+```
+var identifier = 'https://github.com/frictionlessdata/example-data-packages/tree/master/inflation'
+
+var identifier = 'https://github.com/frictionlessdata/example-data-packages/tree/gh-pages/inflation'
 ```
 
 # Installation
