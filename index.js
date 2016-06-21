@@ -50,7 +50,7 @@ exports.parse = function(specString) {
     // is this a github repository?
     if (urlparts.host == 'github.com') {
       // yes, modify url for raw file server
-      urlparts.host = 'raw.github.com';
+      urlparts.host = 'raw.githubusercontent.com';
       var repoName = parts[2]
         , branch = 'master'
         ;
