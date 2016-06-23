@@ -38,8 +38,8 @@ describe('parse', function() {
   it('github ok', function() {
     gdpUrl = 'https://github.com/datasets/gdp';
     var out = spec.parse(gdpUrl);
-    assert.equal(out.url, 'https://raw.github.com/datasets/gdp/master/');
-    assert.equal(out.dataPackageJsonUrl, 'https://raw.github.com/datasets/gdp/master/datapackage.json');
+    assert.equal(out.url, 'https://raw.githubusercontent.com/datasets/gdp/master/');
+    assert.equal(out.dataPackageJsonUrl, 'https://raw.githubusercontent.com/datasets/gdp/master/datapackage.json');
     assert.equal(out.name, 'gdp');
     assert.equal(out.version, 'master');
   });
@@ -47,8 +47,8 @@ describe('parse', function() {
   it('github branch ok', function() {
     gdpUrl = 'https://github.com/okfn/dpm/tree/some-branch';
     var out = spec.parse(gdpUrl);
-    assert.equal(out.url, 'https://raw.github.com/okfn/dpm/some-branch/');
-    assert.equal(out.dataPackageJsonUrl, 'https://raw.github.com/okfn/dpm/some-branch/datapackage.json');
+    assert.equal(out.url, 'https://raw.githubusercontent.com/okfn/dpm/some-branch/');
+    assert.equal(out.dataPackageJsonUrl, 'https://raw.githubusercontent.com/okfn/dpm/some-branch/datapackage.json');
     assert.equal(out.name, 'dpm');
     assert.equal(out.version, 'some-branch');
   });
@@ -56,8 +56,8 @@ describe('parse', function() {
   it('github subfolder ok', function() {
     dpmFolderUrl = 'https://github.com/okfn/dpm/tree/master/test/fixtures/datapackage-example-inline';
     var out = spec.parse(dpmFolderUrl);
-    assert.equal(out.url, 'https://raw.github.com/okfn/dpm/master/test/fixtures/datapackage-example-inline/');
-    assert.equal(out.dataPackageJsonUrl, 'https://raw.github.com/okfn/dpm/master/test/fixtures/datapackage-example-inline/datapackage.json');
+    assert.equal(out.url, 'https://raw.githubusercontent.com/okfn/dpm/master/test/fixtures/datapackage-example-inline/');
+    assert.equal(out.dataPackageJsonUrl, 'https://raw.githubusercontent.com/okfn/dpm/master/test/fixtures/datapackage-example-inline/datapackage.json');
     assert.equal(out.name, 'datapackage-example-inline');
     assert.equal(out.version, 'master');
   });
@@ -65,8 +65,8 @@ describe('parse', function() {
   it('github subfolder on branch ok', function() {
     dpmFolderUrl = 'https://github.com/okfn/dpm/tree/some-branch/test/fixtures/datapackage-example-inline';
     var out = spec.parse(dpmFolderUrl);
-    assert.equal(out.url, 'https://raw.github.com/okfn/dpm/some-branch/test/fixtures/datapackage-example-inline/');
-    assert.equal(out.dataPackageJsonUrl, 'https://raw.github.com/okfn/dpm/some-branch/test/fixtures/datapackage-example-inline/datapackage.json');
+    assert.equal(out.url, 'https://raw.githubusercontent.com/okfn/dpm/some-branch/test/fixtures/datapackage-example-inline/');
+    assert.equal(out.dataPackageJsonUrl, 'https://raw.githubusercontent.com/okfn/dpm/some-branch/test/fixtures/datapackage-example-inline/datapackage.json');
     assert.equal(out.name, 'datapackage-example-inline');
     assert.equal(out.version, 'some-branch');
   });
