@@ -91,7 +91,7 @@ exports.parse = function(specString) {
 }
 
 exports.normalizeDataPackageUrl = function(url) {
-  var url = exports.parseSpecString(url).url;
+  var url = exports.parse(url).url;
   if (url.indexOf('datapackage.json') == -1) {
     url = url.replace(/\/$/, '');
     url += '/datapackage.json'
