@@ -29,7 +29,7 @@ exports.parse = function(specString) {
     specString[0] == '/' ||
     (specString.indexOf('http') == -1 && specString[specString.length-1] == '/')
     ) {
-    var path_ = pathmod.resolve(specString)
+    var path_ = pathmod.posix.resolve(specString)
       , path_ = path_.replace('/datapackage.json', '')
       , path_ = path_.replace(/\/$/, '')
       ;

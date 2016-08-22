@@ -83,7 +83,7 @@ describe('parse', function() {
 
   it('local relative path ok', function() {
     var gdpUrl = 'tmp/gdp/'
-      , ourpath = pathmod.resolve(gdpUrl) + '/'
+      , ourpath = pathmod.posix.resolve(gdpUrl) + '/'
     ;
 
     var out = spec.parse(gdpUrl);
