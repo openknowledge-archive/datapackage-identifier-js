@@ -1,7 +1,7 @@
 {
   "name": "datapackage-identifier",
   "description": "Manipulate Data Package Identifiers and Identifier Strings",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "license": "MIT",
   "author": "Rufus Pollock <rufus.pollock@okfn.org>",
   "scripts": {
